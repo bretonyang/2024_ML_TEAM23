@@ -1,0 +1,62 @@
+Intro.
+
+Hello, we are Team 23, our project is using RNN model to predict the next pitch. It is an era that baseball heavily based on data science, but the methods used recently still relies heavily on mathematical statistics, and we think it may overlook some important abstract features like game context or pitching tendency.
+
+To address this, we used RNN models to learn the relationship between pitches, which combing data slicing techniques and model ensemble approaches. By comparing four different versions of models, the one which includes a generalist and a specialist model enhance predictions particularly for less frequent pitch types and have the best result.
+
+Our model outperforms baseline methods by bayes classifier, as you can see the accuracy 69% which is way higher than 55%.
+
+This tool provides valuable tools for pitchers, coaches, and catchers to refine strategies and improve performance. Now we'll start to answer questions.
+
++
+
+Q1.   This guy doens't understand what is data slicing in our project. We do this because the original datasize of a single pitcher in a year is too small and we also want to keep the feature of the relationship between previous pitch and this pitch.
+
+Take an example, if we have an original seuqunce of one batter after doing pitch types embedding, and we set the size range of subsequence is 2 to 3, and we can get this, this…, this which let the dataset amount increase from 1 to 5. In our real case, the dataset of shota imanaga increases from about two thousand to five thousand but also maintain the relationship. 
+26s
+
++
+
+Q2: Why don't you use data augmentation to generate additional data to balance the data distribution?
+Answer: This question is about why don't we use data augmentation to balance class distribution.
+(next slide)
+We've actually tried SMOTE for Time Series data. However, there was not much improvement in the confusion matrix.
+We think that there are too many real-world dynamic aspects in baseball, even the slightest augmentation might distort the meaning and relationship between pitches. So, naive data augmentation would not work.
+
++
+
+Q3. Without frequency feature, our model is like a batter stepping into the batter’s box without knowing anything beforehand. Adding frequency features gives our model a basic understanding of the pitcher. Since the data we used are from last year, the value of this feature remains the same for every training sample.
+
+Q4. We have tried two cutting scheme. One is cutting by batter and the another one is cutting by date. We found that the BATTER one with smaller sequence has better performance.
+
+Q5. Yes we did. This one is catcher's id, and here we have some detailed data like woba, babip and iso... Here's their definition, and I am not to go into details one by one. 
+
++
+
+Q7:
+this question is about why our testing dataset amount of simpleRNN and the one adding specialist model are different.
+
+Thank you for your careful observations. 
+
+We realized that the original test data did not include enough splitter(FS) and curveball(CU) samples. To address this, we adjust the dataset splitting to make sure the testing data has enough splitter(FS) and curveball(CU) samples. 
+But we upload the confusion matrix of general model with old testing dataset in the video. we fix it here and still can get the same conclusion. Many thanks!
+
+Q8:
+This question ask why we only combing two models.
+
+The purpose of adding specialist model is to cope with the problem that over-focus on frequent pitch type like fastball and slider.
+
+And introducing a specialist model removing these two pitch type already fix the problem, so we don't need additional specialist models.
+
+Last, we choose weight based on validation data set,to weight sofmax of general model and specilaist model 
+
+
++
+
+Q9: can you explain again why you think the ones with fewer pitch types have better results, and also in the video, I noticed that the Miller one has better results than the other two, could you also discuss this part to show the possible reason that Miller’s stand out?
+
+When a pitcher has a limited variety of pitch types, the model has fewer categories to distinguish between, which generally leads to higher accuracy. And also, some pitch type frequency only has under 10%, it’s hard to use model to predict. And why Miller achieve better result is because his has fewer pitch types, the accuracy tends to be higher.
+
+Q10:Is 60% a good accuracy compared to the accuracy of easier guessing methods? (For example: always predict the next pitch the same as the current pitch. If this pitch is ff, the next pitch is also ff. If the accuracy of such is also close to 60%, than the model would be less useful.)
+
+Using Mason Miller as an example, the left chart shows the pitch type frequency distribution, where the highest frequency is FF (62.9%). Therefore, even if we always guess the most frequent pitch type, FF, the accuracy would only reach 62.9%. In contrast, the right chart shows the accuracy achieved by our trained model, which demonstrates an accuracy close to 70%. This indicates that the model provides better predictive performance compared to simply guessing the most frequent pitch type. And also our model have better perform in predict other pitch type.
