@@ -47,7 +47,7 @@ Here's a quick overview of other folders in this repository:
 
 ## Project Report
 
-The complete report, titled **"RNN-Based Pitch Type Prediction: Insights into Sequential Patterns and Strategy Refinement"**, is available in this repository. It details the methodology, experiments, and results of this project. You can find it here: [RNN_Based_Pitch_Type_Prediction_Report.pdf](link/to/report).
+The complete report, titled **"RNN-Based Pitch Type Prediction: Insights into Sequential Patterns and Strategy Refinement"**, is available in this repository. It details the methodology, experiments, and results of this project. You can find it here: [RNN_Based_Pitch_Type_Prediction_Report.pdf](https://github.com/bretonyang/Pitch-Type-Prediction-Using-RNN/blob/d94ead3b2b082cc88e521f1f3991e318787ae495/RNN_Based_Pitch_Type_Prediction_Report.pdf).
 
 Highlights from the report include:
 - Accuracy improvement from 55% (Bayesian baseline) to 69% using RNN models.
