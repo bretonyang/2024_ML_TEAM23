@@ -44,3 +44,14 @@ Here's a quick overview of other folders in this repository:
 - `Meeting Minutes`: Includes all nine meeting minutes reports from the semester.
 - `Proposal`: Contains our proposal video, peer reviews of other teams' proposals, and our responses to feedback.
 - `Video & Presentation`: Includes our project video slides, the final video, questions from other teams, and slides used during the presentation Q&A session.
+
+## Project Report
+
+The complete report, titled **"RNN-Based Pitch Type Prediction: Insights into Sequential Patterns and Strategy Refinement"**, is available in this repository. It details the methodology, experiments, and results of this project. You can find it here: [RNN_Based_Pitch_Type_Prediction_Report.pdf](link/to/report).
+
+Highlights from the report include:
+- Accuracy improvement from 55% (Bayesian baseline) to 69% using RNN models.
+- Techniques for handling imbalanced pitch type distributions with a generalist-specialist voting mechanism.
+- Model comparisons between Simple RNN, LSTM, and Attention-based LSTM.
+
+For more details, please refer to the PDF.
